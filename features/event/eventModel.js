@@ -8,6 +8,10 @@ class EventModel {
     this.#events.push(newEvent);
   }
 
+  getEvent(){
+    return [...this.#events];
+  }
+
   setEvents(events) {
     this.#events = events;
   }
