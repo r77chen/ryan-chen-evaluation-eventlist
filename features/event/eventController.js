@@ -116,7 +116,7 @@ class EventController {
 
       if (e.target.classList.contains("cancel-btn")) {
         const eventId = e.target.closest('tr').getAttribute("id");
-        const originalEvent = this.#model.events.find(event => event.id === eventId);
+        const originalEvent = this.#model.getEvent().find(event => event.id === eventId);
         this.#view.cancelEditEventElement(eventId, originalEvent);
       }
     });
