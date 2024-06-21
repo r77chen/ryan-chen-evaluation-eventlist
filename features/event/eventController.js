@@ -60,6 +60,7 @@ class EventController {
           eventAPI.postEventAPI(newEvent).then((_newEvent) => {
             this.#model.addEvent(_newEvent);
             this.#view.renderEventElement(_newEvent);
+            eventItem.remove();
           });
         }
       });
