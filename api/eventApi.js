@@ -23,6 +23,21 @@ const eventAPI = (() => {
   }
   };
 
+  const putEventAPI = async (newEvent) => {
+    try {
+      return fetch(`${BASE_EVENT_API}/${newEvent.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newEvent)
+      }).then((res) => res.json());
+    }
+    catch (err) {
+    console.log(`Error happen in PUT API DATA: ${err}`);
+  }
+  }
+
   const deleteEventAPI = async (eventId) => {
     try {
     return fetch(`${BASE_EVENT_API}/${eventId}`, {
@@ -36,6 +51,7 @@ const eventAPI = (() => {
   return {
     fetchEventsAPI,
     postEventAPI,
+    putEventAPI,
     deleteEventAPI
   };
 })();
