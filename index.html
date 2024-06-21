@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Management</title>
+  <link href="./index.css" rel="stylesheet" />
+</head>
+<body>
+  <main id="event-list-app">
+    <header>
+      <button class="add-event-btn">Add New Event</button>
+    </header>
+    <section class="event-section">
+    <table class="event-table">
+      <thead>
+        <tr>
+          <th class="th-description">Event</th>
+          <th class="th-description">Start</th>
+          <th class="th-description">End</th>
+          <th class="th-description">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="event-list"></tbody>
+    </table>
+  </section>
+  </main>
+
+  <script src="./api/eventApi.js"></script>
+  <script src="./features/event/eventModel.js"></script>
+  <script src="./features/event/eventView.js"></script>
+  <script src="./features/event/eventController.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
