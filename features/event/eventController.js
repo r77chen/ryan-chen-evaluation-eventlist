@@ -37,7 +37,7 @@ class EventController {
       const nameInput = eventItem.querySelector('input[type="text"]');
       nameInput.focus();
       
-      const saveBtn = document.querySelector('.event-item:last-child .save-btn');
+      const saveBtn = document.querySelector('.event-item:last-child .add-btn');
       const cancelBtn = document.querySelector('.event-item:last-child .cancel-btn');
 
       saveBtn.addEventListener("click", () => {
@@ -51,6 +51,7 @@ class EventController {
           newEvent.name = nameInput.value,
           newEvent.start = startInput.value,
           newEvent.end = endInput.value
+          newEvent.id = uuidv4();
           };
 
         // Check if any input is empty
@@ -99,12 +100,14 @@ class EventController {
           name: eventItem.querySelector("td:nth-child(1) input").value,
           start: eventItem.querySelector("td:nth-child(2) input").value,
           end: eventItem.querySelector("td:nth-child(3) input").value,
+          id: eventItem.id
         };
 
         if (!updatedEvent.name || !updatedEvent.start || !updatedEvent.end) {
           alert("Inputs are Required");
         } else {
-          eventAPI.postEventAPI(updatedEvent).then((_updatedEvent) => {
+          console.log(updatedEvent);
+          eventAPI.putEventAPI(updatedEvent).then((_updatedEvent) => {
             this.#model.updateEvent(eventId, _updatedEvent);
             this.#view.saveEventElement(eventId, _updatedEvent);
           });
